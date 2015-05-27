@@ -1,0 +1,8 @@
+{
+	"name":"Git 版本管理",
+	"version":"0.3.0",
+	"textor":["0.3.0",">0.3.0"],
+	"platform":["win","linux","mac"],
+	"summary":"Git 版本管理",
+	"main":"main"
+}

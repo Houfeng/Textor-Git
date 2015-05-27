@@ -1,0 +1,114 @@
+<div class='git-panel'>
+  <% var model = this.git || {}; %>
+    <label>
+      Repo
+    </label>
+    <p>
+      <% if(model.repos && model.repos.length>0){ %>
+          <select data-event='change>!repoChange'>
+            <% $.each(model.repos,function(i,item){ %>
+              <option data-path='<%= item.path %>' <%= (item.path == model.repoPath?'selected':'') %> >
+                <%= item.name %>
+                [<%= item.path %>]
+              </option>
+            <% }); %>
+          </select>
+          <input type="button" value="Init" data-event='click>!initRepo'>
+      <% }else{ %>
+         <span class='alert'>No Found Repos</span>
+      <% } %>
+    </p>
+    <label>
+      Remote
+    </label>
+    <p>
+        <% if(model.remotes && model.remotes.length>0){ %>
+          <select>
+            <% $.each(model.remotes,function(i,item){ %>
+              <option <%= (item == model.remote?'selected':'') %> >
+                <%= item %>
+              </option>
+            <% }); %>
+          </select>
+        <% }else{ %>
+            <span class='alert'>No Found Remotes</span>
+        <% } %>
+        <% if(model.repos && model.repos.length>0){ %>
+            <input type="button" value="Add">
+        <% } %>
+        <% if(model.remotes && model.remotes.length>0){ %>
+            <input type="button" value="Remove">
+            <input type="button" value="Clone" data-event='click>!clone'>
+        <% } %>
+    </p>
+    <label>
+      Branch
+    </label>
+    <p>
+        <% if(model.branchs && model.branchs.length>0){ %>
+          <select data-event='change>!branchChange'>
+            <% $.each(model.branchs,function(i,item){ %>
+              <option <%= (item == model.branchName ?'selected':'') %>>
+                <%= item %>
+              </option>
+            <% }); %>
+          </select>
+        <% }else{ %>
+            <span class='alert'>No Found Branchs</span>
+        <% } %>
+        <% if(model.repos && model.repos.length>0){ %>
+            <input type="button" value="Add">
+        <% } %>
+        <% if(model.branchs && model.branchs.length>0){ %>
+            <input type="button" value="Delete">
+            <input type="button" value="Merge">
+            <input type="button" value="Pull" data-event='click>!pull'>
+        <% } %>
+    </p>
+    <div class='spliter'>
+    </div>
+    <label>
+      Change
+    </label>
+    <p>
+      <% if(model.changedFiles && model.changedFiles.length>0){ %>
+          <ul class="list">
+            <% $.each(model.changedFiles,function(i,item){ %>
+              <li>
+                <input type="checkbox" id='git-file-<%= i %>'>
+                <label for='git-file-<%= i %>'><%= item %></label>
+              </li>
+            <% }); %>
+          </ul>
+          <textarea class='git-commit-box' type="text"></textarea>
+      <% }else{ %>
+         <span class='alert'>No Found Changed Files</span>
+      <% } %>
+      <% if(model.branchs && model.branchs.length>0){ %>
+        <input type="button" value="Refresh" data-event='click>!refreshBranch'>
+      <% } %>
+      <% if(model.changedFiles && model.changedFiles.length>0){ %>
+        <input type="button" value="Discard">
+        <input type="button" value="Commit" data-event='click>!commit'>
+      <% } %>
+    </p>
+    <label>
+      Commit
+    </label>
+    <p>
+      <% if(model.commits && model.commits.length>0){ %>
+          <ul class="list">
+            <% $.each(model.commits,function(i,item){ %>
+              <li>
+                <%= item %>
+              </li>
+            <% }); %>
+          </ul>
+      <% }else{ %>
+        <span class='alert'>No Found Commits</span>
+      <% } %>
+      <% if(model.commits && model.commits.length>0 && model.remote!=''){ %>
+        <input type="button" value="Push" data-event='click>!push'>
+      <% } %>
+    </p>
+</div>

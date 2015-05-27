@@ -1,0 +1,13 @@
+.git-panel{padding:8px;height:100%;overflow-y:auto; color:#777;font-size:13px;}
+.git-panel label:first-child{margin-top:0px;}
+.git-panel label {display:block; margin-top:10px; }
+.git-panel input[type='text'], .git-panel select, .git-panel textarea{width:100%;margin:1px 0px; }
+.git-panel input[type='button']{min-width:56.3333px;margin:1px 0px;background:#444; }
+.git-panel .spliter { height:2px;margin: 10px 0px 8px 0px; border:none;font-size:0px;line-height:0px;background:#444;}
+.git-panel .list{background:#151515;color:#888; max-height:100px;overflow-y:auto;overflow-x:hidden;}
+.git-panel .list li {padding:2px;position:relative;padding-right:20px;}
+.git-panel .list li label {display:inline;font-size:12px;vertical-align:middle;}
+.git-panel .list li input {vertical-align:middle;}
+.git-panel .list li .btn{position:absolute;right:2px;top:2px;}
+.git-panel input[type='checkbox']{ appearance:checkbox !important; -webkit-appearance:checkbox !important; }
+.git-panel .alert { display:block; padding:8px;font-size:12;font-style:italic; }
